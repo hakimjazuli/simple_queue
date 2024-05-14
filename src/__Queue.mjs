@@ -34,7 +34,7 @@ export class __Queue {
 	 * @param {_QueueObject} _queue
 	 */
 	push = (_queue) => {
-		if (this.queue.length > 0 && _queue.id === this.queue[this.queue.length - 1][0]) {
+		if (this.queue.length > 0 && _queue.id === this.queue[this.queue.length - 1].id) {
 			this.queue.shift();
 		}
 		this.queue.push(_queue);
@@ -49,6 +49,7 @@ export class __Queue {
 	 * @param {CallableFunction} callback
 	 */
 	is_async = (callback) => callback.constructor.name === 'AsyncFunction';
+	/** @private */
 	run_queue = async () => {
 		this.is_running = true;
 		while (this.queue[0]) {

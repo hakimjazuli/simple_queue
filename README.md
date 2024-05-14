@@ -44,3 +44,10 @@ __Queue.__.assign(
 	)
 );
 ```
+
+## Library Naming Convenience
+
+-   classes that are **PREFIXED** with "\_\_" are globals, can be accessed with its "\_\_" static
+    method, no need to be instantiated after instantiating single class of it;
+-   classes that are **PREFIXED** with "\_" are meant to be used in your app;
+-   classes that are **NOT PREFIXED** with any "\_" are meant for library internals;
