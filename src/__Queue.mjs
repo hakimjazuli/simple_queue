@@ -11,9 +11,9 @@ export class __Queue {
 
 	/**
 	 * @private
-	 * @type {_QueueObject[]}
+	 * @type {Object.<string,{callback:()=>(any|Promise<any>),debounce:(number|false)}>}
 	 */
-	queue = [];
+	queue = {};
 	/**
 	 * @private
 	 * @type {boolean}
@@ -34,10 +34,7 @@ export class __Queue {
 	 * @param {_QueueObject} _queue
 	 */
 	push = (_queue) => {
-		if (this.queue.length > 0 && _queue.id === this.queue[this.queue.length - 1].id) {
-			this.queue.shift();
-		}
-		this.queue.push(_queue);
+		this.queue[_queue.id] = { callback: _queue.callback, debounce: _queue.debounce };
 	};
 	/**
 	 * @private
@@ -52,17 +49,20 @@ export class __Queue {
 	/** @private */
 	run_queue = async () => {
 		this.is_running = true;
-		while (this.queue[0]) {
-			const { callback, debounce } = this.queue[0];
-			this.queue.shift();
-			if (debounce) {
-				await this.timeout(debounce);
+		while (Object.keys(this.queue).length !== 0) {
+			for (const current_key in this.queue) {
+				const { callback, debounce } = this.queue[current_key];
+				delete this.queue[current_key];
+				if (debounce) {
+					await this.timeout(debounce);
+				}
+				if (this.is_async(callback)) {
+					await callback();
+					continue;
+				}
+				callback();
+				break;
 			}
-			if (this.is_async(callback)) {
-				await callback();
-				continue;
-			}
-			callback();
 		}
 		this.is_running = false;
 	};
