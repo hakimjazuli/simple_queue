@@ -30,17 +30,15 @@ import { __Queue } from '@html_first/simple_queue';
 import { _QueueObject } from '@html_first/simple_queue';
 
 __Queue.__.assign(
-	new _(
-		QueueObject(
-			'id' /** <- queue id to prevent spamming action button */,
-			() => {
-				/**
-				 * - callback
-				 * - can also be async function
-				 */
-			},
-			0 /** <- debounce on each valid(sanitized from spam) action */
-		)
+	new _QueueObject(
+		'id' /** <- queue id to prevent spamming action button */,
+		() => {
+			/**
+			 * - callback
+			 * - can also be async function
+			 */
+		},
+		0 /** <- debounce on each valid(sanitized from spam action */
 	)
 );
 ```
