@@ -1,0 +1,22 @@
+{
+	"name": "@html_first/simple_queue",
+	"version": "0.8.0",
+	"description": "base queue handler for @html_first packages",
+	"main": "index.mjs",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hakimjazuli/simple_queue.git"
+	},
+	"keywords": [
+		"simple queue handler for frontend or backend js"
+	],
+	"author": "hakim_jazuli",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/hakimjazuli/simple_queue/issues"
+	},
+	"homepage": "https://github.com/hakimjazuli/simple_queue#readme"
+}
