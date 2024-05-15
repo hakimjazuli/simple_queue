@@ -2,13 +2,7 @@
 
 /** @typedef {import('./_QueueObject.mjs')._QueueObject} _QueueObject */
 
-export class __Queue {
-	/** @type {__Queue} */
-	static __;
-	constructor() {
-		__Queue.__ = this;
-	}
-
+export class _Queue {
 	/**
 	 * @private
 	 * @type {Object.<string,{callback:()=>(any|Promise<any>),debounce:(number|false)}>}
