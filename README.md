@@ -14,9 +14,9 @@ npm i @html_first/simple_queue
 ```js
 // @ts-check
 
-import { __Queue, _QueueObject } from '@html_first/simple_queue';
+import { _Queue, _QueueObject } from '@html_first/simple_queue';
 
-$queue = new __Queue();
+$queue = new _Queue();
 $queue.assign(
 	new _QueueObject(
 		'id' /** <- queue id to prevent spamming action button */,
