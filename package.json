@@ -1,6 +1,6 @@
 {
 	"name": "@html_first/simple_queue",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "base queue handler for @html_first packages",
 	"main": "index.mjs",
 	"scripts": {
