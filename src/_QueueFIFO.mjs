@@ -1,15 +1,14 @@
 // @ts-check
 
-import { _QueueObjectFIFO } from './_QueueObjectFIFO.mjs';
-import { _QueueObject } from './_QueueObject.mjs';
 import { Functions } from './Functions.mjs';
+import { _QueueObjectFIFO } from './_QueueObjectFIFO.mjs';
 
-export class _Queue {
+export class _QueueFIFO {
 	/**
 	 * @private
-	 * @type {_QueueObject|{}}
+	 * @type {_QueueObjectFIFO['detail'][]}
 	 */
-	queue = {};
+	queue = [];
 	/**
 	 * @private
 	 * @type {boolean}
@@ -17,9 +16,9 @@ export class _Queue {
 	is_running = false;
 	/**
 	 * @public
-	 * @param {_QueueObject} _queue
+	 * @param {_QueueObjectFIFO} _queue
 	 */
-	assign_unique = (_queue) => {
+	assign = (_queue) => {
 		this.push(_queue);
 		if (!this.is_running) {
 			this.run();
@@ -27,19 +26,18 @@ export class _Queue {
 	};
 	/**
 	 * @private
-	 * @param {_QueueObject} _queue
+	 * @param {_QueueObjectFIFO} _queue
 	 */
 	push = (_queue) => {
-		const { callback, debounce } = _queue;
-		this.queue[_queue.id] = { callback, debounce };
+		this.queue.push(_queue.detail);
 	};
 	/** @private */
 	run = async () => {
 		this.is_running = true;
-		while (Object.keys(this.queue).length !== 0) {
-			for (const current_key in this.queue) {
-				const { callback, debounce: debounce_ms } = this.queue[current_key];
-				delete this.queue[current_key];
+		while (this.queue.length !== 0) {
+			for (let i = 0; i < this.queue.length; i++) {
+				const [callback, debounce_ms] = this.queue[i];
+				this.queue.shift();
 				if (debounce_ms) {
 					await Functions.timeout(debounce_ms);
 				}
