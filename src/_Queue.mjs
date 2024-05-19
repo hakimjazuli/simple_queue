@@ -1,6 +1,5 @@
 // @ts-check
 
-import { _QueueObjectFIFO } from './_QueueObjectFIFO.mjs';
 import { _QueueObject } from './_QueueObject.mjs';
 import { Functions } from './Functions.mjs';
 
