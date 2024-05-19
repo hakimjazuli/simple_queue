@@ -11,6 +11,8 @@ npm i @html_first/simple_queue
 
 ## usage
 
+-   debouncing using unique id
+
 ```js
 // @ts-check
 
@@ -26,7 +28,25 @@ $queue.assign(
 			 * - can also be async function
 			 */
 		},
-		0 /** <- debounce on each valid(sanitized from spam action */
+		false /** <- false or number debounce on each valid(sanitized from spam action */
 	)
+);
+```
+
+-   handles all with first in first out
+
+```js
+// @ts-check
+
+import { _QueueFIFO, _QueueObjectFIFO } from '@html_first/simple_queue';
+
+$queue = new _QueueFIFO();
+$queue.assign(
+	new _QueueObjectFIFO(() => {
+		/**
+		 * - callback
+		 * - can also be async function
+		 */
+	}, false /** <- false or number debounce on each valid(sanitized from spam action */)
 );
 ```
