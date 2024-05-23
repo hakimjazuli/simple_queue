@@ -18,7 +18,7 @@ export class _Queue {
 	 * @public
 	 * @param {_QueueObject} _queue
 	 */
-	assign_unique = (_queue) => {
+	assign = (_queue) => {
 		this.push(_queue);
 		if (!this.is_running) {
 			this.run();
