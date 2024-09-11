@@ -3,6 +3,8 @@
 	"version": "1.2.1",
 	"description": "base queue handler for @html_first packages",
 	"main": "index.mjs",
+	"types": "./types/index.d.mts",
+	"module": "index.mjs",
 	"scripts": {
 		"dev": "concurrently \"bun ./dev/index.mjs\" \"bun gen:type\"",
 		"gen:type": "tsc ./index.mjs --allowJs --declaration --emitDeclarationOnly --outDir ./types --module ESNext --target ES2020 --moduleResolution node --esModuleInterop --skipLibCheck --watch"
