@@ -4,7 +4,8 @@
 	"description": "base queue handler for @html_first packages",
 	"main": "index.mjs",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"dev": "concurrently \"bun ./dev/index.mjs\" \"bun gen:type\"",
+		"gen:type": "tsc ./index.mjs --allowJs --declaration --emitDeclarationOnly --outDir ./types --module ESNext --target ES2020 --moduleResolution node --esModuleInterop --skipLibCheck --watch"
 	},
 	"repository": {
 		"type": "git",
@@ -18,5 +19,9 @@
 	"bugs": {
 		"url": "https://github.com/hakimjazuli/simple_queue/issues"
 	},
-	"homepage": "https://github.com/hakimjazuli/simple_queue#readme"
+	"homepage": "https://github.com/hakimjazuli/simple_queue#readme",
+	"devDependencies": {
+		"@html_first/js_lib_template": "link:@html_first/js_lib_template"
+	},
+	"dependencies": {}
 }
