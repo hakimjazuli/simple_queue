@@ -1,3 +1,7 @@
+/**
+ * @description
+ * queue handler `first in first out`;
+ */
 export class _QueueFIFO {
     /**
      * @private

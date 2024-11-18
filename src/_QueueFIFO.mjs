@@ -3,6 +3,10 @@
 import { Functions } from './Functions.mjs';
 import { _QueueObjectFIFO } from './_QueueObjectFIFO.mjs';
 
+/**
+ * @description
+ * queue handler `first in first out`;
+ */
 export class _QueueFIFO {
 	/**
 	 * @private

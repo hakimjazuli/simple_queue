@@ -6,7 +6,7 @@
 	"types": "./types/index.d.mts",
 	"module": "index.mjs",
 	"scripts": {
-		"dev": "concurrently \"bun ./dev/index.mjs\" \"bun gen:type\"",
+		"dev": "concurrently \"bun --watch ./dev/index.mjs\" \"bun gen:type\"",
 		"gen:type": "tsc ./index.mjs --allowJs --declaration --emitDeclarationOnly --outDir ./types --module ESNext --target ES2020 --moduleResolution node --esModuleInterop --skipLibCheck --watch"
 	},
 	"repository": {

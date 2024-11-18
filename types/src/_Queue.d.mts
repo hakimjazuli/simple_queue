@@ -1,3 +1,7 @@
+/**
+ * @description
+ * queue handler with `unique id`;
+ */
 export class _Queue {
     /**
      * @private

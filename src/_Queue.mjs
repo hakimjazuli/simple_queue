@@ -3,6 +3,10 @@
 import { _QueueObject } from './_QueueObject.mjs';
 import { Functions } from './Functions.mjs';
 
+/**
+ * @description
+ * queue handler with `unique id`;
+ */
 export class _Queue {
 	/**
 	 * @private
